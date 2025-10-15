@@ -277,7 +277,7 @@ export default function Hero() {
               {"// Intro"}
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-tight mb-8">
+          <h2 className="text-3xl sm:text-4xl font-light leading-tight mb-8">
             I&apos;m a versatile{" "}
             <span className="dark:text-red-500 text-blue-600">
               engineer who

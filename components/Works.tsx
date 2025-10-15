@@ -1,147 +1,91 @@
 "use client";
-import { useState } from "react";
-
 export default function Work() {
-  const [selected, setSelected] = useState<portfolitypes | null>(null);
-
   return (
-    <section className="work section" id="work">
-      <h2 className="section-title">Recent Works</h2>
+    <section
+      id="work"
+      className="work section py-16 bg-white dark:bg-black text-gray-900 dark:text-gray-100"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light leading-none mb-8">
+            My <span className="font-normal text-red-500">Projects</span>
+          </h1>
 
-      <div className="work-filters">
-        <span className="work-item active-work" data-filter="all">
-          All
-        </span>
-        <span className="work-item" data-filter=".web">
-          Web
-        </span>
-        <span className="work-item" data-filter=".app">
-          App
-        </span>
-        <span className="work-item" data-filter=".design">
-          Design
-        </span>
-      </div>
-
-      <div className="work-container max-w-6xl mx-auto grid">
-        {portfolioProjects.map((project, index) => (
-          <div key={index} className={`work-card mix ${project.category}`}>
-            <img src={project.img} alt="" className="work-img" />
-            <h3 className="work-title">{project.title}</h3>
-            <span onClick={() => setSelected(project)} className="work-button">
-              Demo <i className="uil uil-arrow-right work-button-icon"></i>
-            </span>
-            <div className="portfolio-item-details">
-              <h3 className="details-title">{project.details.title}</h3>
-              <p className="details-description">
-                {project.details.description}
-              </p>
-              <ul className="details-info">
-                <li>
-                  Created - <span>{project.details.created}</span>
-                </li>
-                <li>
-                  Technologies - <span>{project.details.technologies}</span>
-                </li>
-                <li>
-                  Role - <span>{project.details.role}</span>
-                </li>
-                <li>
-                  View -{" "}
-                  <span>
-                    <a href="#">{project.details.view}</a>
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className={`portfolio-popup ${selected ? "open" : ""}`}>
-        <div className="portfolio-popup-inner">
-          <div className="portfolio-popup-content grid">
-            <span
-              onClick={() => setSelected(null)}
-              className="portfolio-popup-close"
+          <div className="mb-6">
+            <p
+              className={`text-xl lg:text-2xl 
+                   dark:text-gray-300 text-gray-600
+              mb-2`}
             >
-              <i className="uil uil-times"></i>
-            </span>
-            <div className="pp-thumbnail">
-              <img src={selected?.img} alt="" className="portfolio-popup-img" />
-            </div>
+              {"Performance & Scalability"}
+            </p>
+          </div>
 
-            <div className="portfolio-popup-info">
-              <div className="portfolio-popup-subtitle">
-                Featured - <span>{selected?.category}</span>
-              </div>
-              <div className="portfolio-popup-body">
-                <h3 className="details-title">{selected?.details?.title}</h3>
-                <p className="details-description">
-                  {selected?.details?.description}
-                </p>
-
-                <ul className="details-info">
-                  <li>
-                    Created - <span>{selected?.details?.created}</span>
-                  </li>
-                  <li>
-                    Technologies -{" "}
-                    <span>{selected?.details?.technologies}</span>
-                  </li>
-                  <li>
-                    Role - <span>{selected?.details?.role}</span>
-                  </li>
-                  <li>
-                    View -{" "}
-                    <span>
-                      <a href="#">{selected?.details?.view}</a>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          {/* Description */}
+          <div className="max-w-4xl mx-auto lg:mx-0">
+            <p
+              className={`
+                   dark:text-gray-400 text-gray-600 text-lg leading-relaxed mb-8`}
+            >
+              A collection of my recent projects showcasing practical
+              implementations of modern web technologies, focused on
+              performance, scalability, and clean design.
+            </p>
           </div>
         </div>
+      </div>
+
+      <div className="work-container max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 px-4">
+        {portfolioProjects.map((project, index) => (
+          <div
+            key={index}
+            className="card dark:bg-[#222] bg-white h-[31rem] md:h-[26rem]  dark:dark"
+          >
+            <img src={project.img} alt="" />
+            <section className="p-3 flex flex-col">
+              <h2 className="text-white">{project.title}</h2>
+              <p>{project.details.description}</p>
+            </section>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
-export const portfolioProjects = [
+export const portfolioProjects: PortfolioItem[] = [
   {
-    title: "Web Design",
-    category: "web",
-    img: "https://i.postimg.cc/43Th5VXJ/work-1.png",
+    title: "Deken Global",
+    img: "/deken.png",
     demoLink: "#",
     details: {
       title: "The services we provide for design",
       description:
         "Two smartphones displaying a sleek, dark-themed dashboard interface",
       created: "22 Apr 2025",
-      technologies: "html css",
-      role: "frontend",
+      technologies: "HTML, CSS",
+      role: "Frontend",
       view: "www.domain.com",
     },
   },
   {
-    title: "App Design",
-    category: "app",
-    img: "https://i.postimg.cc/sXLjnC5p/work-2.png",
+    title: "Zentry",
+    featured: true,
+    img: "/zentry.png",
     demoLink: "#",
     details: {
       title: "Mobile App Landing Design & App Maintain",
       description:
         "A stylish burger restaurant mobile app interface displayed on two smartphones",
       created: "15 Apr 2025",
-      technologies: "html css",
-      role: "frontend",
+      technologies: "HTML, CSS",
+      role: "Frontend",
       view: "www.domain.com",
     },
   },
   {
     title: "Brand Design",
-    category: "design",
+
     img: "https://i.postimg.cc/QNB1jXYZ/work-3.png",
     demoLink: "#",
     details: {
@@ -149,14 +93,14 @@ export const portfolioProjects = [
       description:
         "Three smartphone screens displaying a beautifully designed travel booking application interface",
       created: "10 Apr 2025",
-      technologies: "html css",
-      role: "frontend",
+      technologies: "HTML, CSS",
+      role: "Frontend",
       view: "www.domain.com",
     },
   },
   {
     title: "App Design",
-    category: "app",
+
     img: "https://i.postimg.cc/s2DGqyG8/work-4.png",
     demoLink: "#",
     details: {
@@ -164,14 +108,14 @@ export const portfolioProjects = [
       description:
         "Modern workout website interface design featuring a bold and energetic visual layout",
       created: "4 Apr 2025",
-      technologies: "html css",
-      role: "frontend",
+      technologies: "HTML, CSS",
+      role: "Frontend",
       view: "www.domain.com",
     },
   },
   {
     title: "Brand Design",
-    category: "web",
+
     img: "https://i.postimg.cc/TYVyPhrF/work-5.png",
     demoLink: "#",
     details: {
@@ -179,14 +123,14 @@ export const portfolioProjects = [
       description:
         "An app design that is clean, functional, and ideal for gamers looking to manage their digital assets and purchases",
       created: "28 Mar 2025",
-      technologies: "html css",
-      role: "frontend",
+      technologies: "HTML, CSS",
+      role: "Frontend",
       view: "www.domain.com",
     },
   },
   {
     title: "Web Design",
-    category: "design",
+
     img: "https://i.postimg.cc/wMdqKcbv/work-6.png",
     demoLink: "#",
     details: {
@@ -194,22 +138,22 @@ export const portfolioProjects = [
       description:
         "An app design that is clean and modern, making food browsing and ordering easy",
       created: "20 Mar 2025",
-      technologies: "html css",
-      role: "frontend",
+      technologies: "HTML, CSS",
+      role: "Frontend",
       view: "www.domain.com",
     },
   },
 ];
 
-type portfolitypes = {
+export type PortfolioItem = {
   title: string;
-  category: string;
   img: string;
   demoLink: string;
-  details: detailsProps;
+  featured?: boolean;
+  details: DetailsProps;
 };
 
-type detailsProps = {
+type DetailsProps = {
   title: string;
   description: string;
   created: string;

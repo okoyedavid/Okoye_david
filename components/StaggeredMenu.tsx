@@ -348,7 +348,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
   return (
     <div
-      className={"fixed top-0 left-0 w-screen h-screen overflow-hidden z-40"}
+      className={`fixed top-0 left-0 w-screen ${
+        open ? "h-screen" : "h-20"
+      } overflow-hidden z-40`}
       style={{ ["--sm-accent" as string]: "#fb2c36 " }}
       data-position={position}
       data-open={open || undefined}
@@ -464,12 +466,12 @@ export default StaggeredMenu;
 const menuItems = [
   { label: "Home", ariaLabel: "Go to home page", link: "/" },
   { label: "About", ariaLabel: "Learn about us", link: "/about" },
-  { label: "Services", ariaLabel: "View our services", link: "/services" },
+  { label: "Projects", ariaLabel: "View our services", link: "/projects" },
   { label: "Contact", ariaLabel: "Get in touch", link: "/contact" },
 ];
 
 const socialItems = [
-  { label: "Twitter", link: "https://twitter.com" },
-  { label: "GitHub", link: "https://github.com" },
-  { label: "LinkedIn", link: "https://linkedin.com" },
+  { label: "Twitter", link: "https://twitter.com/icarus7_" },
+  { label: "GitHub", link: "https://github.com/okoyedavid" },
+  { label: "LinkedIn", link: "https://www.linkedin.com/in/okoyedavid7" },
 ];

@@ -3,11 +3,23 @@
 export default function Qualifications() {
   return (
     <section className="qualification section py-16 bg-black">
-      <h2 className="section-title text-4xl font-bold text-center text-white mb-12 tracking-tight">
-        Qualifications
-      </h2>
+      <div className="text-center lg:text-left max-w-6xl mx-auto mb-12">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light leading-none mb-8">
+          My <span className="font-normal text-red-500">Qualifications</span>
+        </h1>
 
-      <div className="qualification-container max-w-6xl mx-auto grid gap-12 md:grid-cols-3 px-6">
+        <div className="mb-6">
+          <p
+            className={`text-xl lg:text-2xl 
+                   dark:text-gray-300 text-gray-600
+              mb-2`}
+          >
+            {"Excellence & Commitment"}
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-3 px-6">
         {/* Education Section */}
         <div className="education">
           <h3 className="qualification-title flex items-center text-2xl font-semibold text-gray-200 mb-6">

@@ -1,13 +1,19 @@
 import Footer from "@/components/Footer";
 import StaggeredMenu from "@/components/StaggeredMenu";
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Macondo } from "next/font/google";
 import Providers from "./contexts/Providers";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const raleway = Macondo({
+  variable: "--font-Raleway",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const space = Space_Grotesk({
@@ -42,7 +48,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${space.variable} dark:bg-black dark:text-white antialiased `}
+        className={`${inter.variable} ${raleway.variable} ${space.variable} dark:bg-black dark:text-white antialiased `}
       >
         <Providers>
           <StaggeredMenu position="right" colors={["#fb2c36", "#5227FF"]} />
