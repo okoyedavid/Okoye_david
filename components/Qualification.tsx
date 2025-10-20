@@ -92,7 +92,7 @@ export default function Qualifications() {
             <div className="timeline-item mb-8 group transition-all duration-500">
               <div className="circle-dot absolute left-0 w-4 h-4 bg-red-600 rounded-full mt-1 group-hover:bg-red-400 transition-colors"></div>
               <h3 className="timeline-title text-lg font-medium text-white group-hover:text-red-400 transition-colors">
-                Assetium
+                Agropaddi Technologies Limited
               </h3>
               <p className="timeline-text text-gray-400 mt-1">
                 Contract Developer
