@@ -1,6 +1,5 @@
 "use client";
 import ProjectCard from "@/components/ProjectCard";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PortfolioItem, portfolioProjects } from "@/components/Works";
 import { gsap } from "gsap";
@@ -9,17 +8,12 @@ import { useEffect, useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const allTechStack = Array.from(
-  new Set(portfolioProjects.flatMap((project) => project.details.technologies))
-).sort();
-
 const ProjectsPage = () => {
   const theme = "dark";
   const [projects] = useState<PortfolioItem[]>(portfolioProjects);
   const [filteredProjects, setFilteredProjects] =
     useState<PortfolioItem[]>(portfolioProjects);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [showAllFilters, setShowAllFilters] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -57,29 +51,6 @@ const ProjectsPage = () => {
 
     return () => ctx.revert();
   }, []);
-
-  const handleFilterToggle = (tech: string) => {
-    setActiveFilters((prev) => {
-      const newFilters = prev.includes(tech)
-        ? prev.filter((f) => f !== tech)
-        : [...prev, tech];
-
-      // Filter projects based on active filters
-      if (newFilters.length === 0) {
-        setFilteredProjects(projects);
-      } else {
-        setFilteredProjects(
-          projects.filter((project) =>
-            newFilters.some((filter) =>
-              project.details.technologies.includes(filter)
-            )
-          )
-        );
-      }
-
-      return newFilters;
-    });
-  };
 
   const clearAllFilters = () => {
     setActiveFilters([]);
@@ -143,78 +114,6 @@ const ProjectsPage = () => {
       {/* Filters and Projects Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Filters Section */}
-          <div ref={filterRef} className="mb-16">
-            <div className="mb-8">
-              <span
-                className={`text-sm uppercase tracking-wider ${
-                  theme === "dark" ? "text-red-500" : "text-blue-600"
-                } font-semibold`}
-              >
-                {"// Filter"}
-              </span>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-4 mb-6">
-              <h3 className="text-lg font-semibold">Filter by Technology:</h3>
-              {activeFilters.length > 0 && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={clearAllFilters}
-                  className={`${
-                    theme === "dark"
-                      ? "border-gray-600 text-gray-300 hover:bg-gray-800"
-                      : "border-gray-300 text-gray-600 hover:bg-gray-100"
-                  }`}
-                >
-                  Clear All ({activeFilters.length})
-                </Button>
-              )}
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {allTechStack
-                .slice(0, showAllFilters ? allTechStack.length : 8)
-                .map((tech) => (
-                  <Badge
-                    key={tech}
-                    variant={
-                      activeFilters.includes(tech) ? "default" : "secondary"
-                    }
-                    className={`cursor-pointer transition-all duration-200 hover:scale-105 ${
-                      activeFilters.includes(tech)
-                        ? theme === "dark"
-                          ? "bg-red-600 text-white hover:bg-red-700"
-                          : "bg-blue-600 text-white hover:bg-blue-700"
-                        : theme === "dark"
-                        ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                    }`}
-                    onClick={() => handleFilterToggle(tech)}
-                  >
-                    {tech}
-                  </Badge>
-                ))}
-
-              {allTechStack.length > 8 && (
-                <Badge
-                  variant="outline"
-                  className={`cursor-pointer ${
-                    theme === "dark"
-                      ? "border-gray-600 text-gray-300 hover:bg-gray-800"
-                      : "border-gray-300 text-gray-600 hover:bg-gray-100"
-                  }`}
-                  onClick={() => setShowAllFilters(!showAllFilters)}
-                >
-                  {showAllFilters
-                    ? "Show Less"
-                    : `+${allTechStack.length - 8} more`}
-                </Badge>
-              )}
-            </div>
-          </div>
-
           {/* Projects Grid */}
           <div ref={gridRef}>
             <div className="mb-8">

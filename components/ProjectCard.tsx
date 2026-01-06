@@ -18,36 +18,38 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         <p>{project.details.description}</p>
 
         <div className="flex gap-3">
-          <Button
-            size="sm"
-            className=" bg-white text-gray-900 hover:bg-gray-100 shadow-sm"
-            onClick={(e) => {
-              e.stopPropagation();
-              window.open(project.demoLink, "_blank");
-            }}
-          >
-            <svg
-              className="w-4 h-4 mr-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {project.demoLink && (
+            <Button
+              size="sm"
+              className=" bg-white text-gray-900 hover:bg-gray-100 shadow-sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(project.demoLink ?? "", "_blank");
+              }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-            Demo
-          </Button>
+              <svg
+                className="w-4 h-4 mr-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+              Demo
+            </Button>
+          )}
           <Button
             size="sm"
             variant="secondary"
             className="bg-gray-900 text-white hover:bg-gray-800 shadow-sm"
             onClick={(e) => {
               e.stopPropagation();
-              // window.open(project.githubUrl, "_blank");
+              window.open(project.githubUrl, "_blank");
             }}
           >
             <svg

@@ -57,88 +57,64 @@ export const portfolioProjects: PortfolioItem[] = [
   {
     title: "Deken Global",
     img: "/deken.png",
-    demoLink: "#",
+    githubUrl: "https://github.com/okoyedavid/deken-movers",
+    demoLink: "https://deken-movers.vercel.app",
     details: {
-      title: "The services we provide for design",
+      title: "Dashboard Design & Admin Panel for a Moving Company",
       description:
-        "Two smartphones displaying a sleek, dark-themed dashboard interface",
-      created: "22 Apr 2025",
-      technologies: "HTML, CSS",
+        "A sleek and modern dashboard interface design for a moving company's admin panel",
+      created: "22 aug 2025",
+      technologies:
+        "Nextjs, tailwindcss, framer-motion, recharts, react-table, shadcn ui, next-js",
       role: "Frontend",
-      view: "www.domain.com",
+      view: "https://deken-movers.vercel.app",
     },
   },
   {
     title: "Zentry",
     featured: true,
     img: "/zentry.png",
-    demoLink: "#",
+    demoLink: null,
+    githubUrl: "https://github.com/okoyedavid/task-manager",
     details: {
-      title: "Mobile App Landing Design & App Maintain",
+      title: "Todo application, task management app design & development",
       description:
-        "A stylish burger restaurant mobile app interface displayed on two smartphones",
+        "A clean and minimalistic todo application interface design with intuitive task management features",
       created: "15 Apr 2025",
-      technologies: "HTML, CSS",
+      technologies:
+        "nextjs, tailwindcss, framer-motion, nodejs, express, mongoose",
       role: "Frontend",
       view: "www.domain.com",
     },
   },
   {
-    title: "Brand Design",
-
-    img: "https://i.postimg.cc/QNB1jXYZ/work-3.png",
-    demoLink: "#",
+    title: "Faculty Website",
+    githubUrl: "https://github.com/okoyedavid/Esut_pharmacy",
+    img: "/esut.png",
+    demoLink: "https://esut-pharmacy.vercel.app",
     details: {
-      title: "Logo Design Creativity & Application",
+      title: "Faculty of Engineering Website Design & Development",
       description:
-        "Three smartphone screens displaying a beautifully designed travel booking application interface",
-      created: "10 Apr 2025",
-      technologies: "HTML, CSS",
-      role: "Frontend",
-      view: "www.domain.com",
+        "A modern and clean faculty website interface design with intuitive navigation",
+      created: "10 january 2025",
+      technologies:
+        "nextjs, tailwindcss, framer-motion, nodejs, express, mongoose, supabase",
+      role: "full-stack",
+      view: "https://esut-pharmacy.vercel.app/",
     },
   },
   {
-    title: "App Design",
+    title: "Auve",
 
-    img: "https://i.postimg.cc/s2DGqyG8/work-4.png",
-    demoLink: "#",
+    img: "/auve.png",
+    demoLink: null,
+    githubUrl: "https://github.com/okoyedavid/david-wears",
     details: {
-      title: "Mobile App Landing Design & Services",
+      title: "Auve - Fitness & Workout Website Design",
       description:
-        "Modern workout website interface design featuring a bold and energetic visual layout",
-      created: "4 Apr 2025",
-      technologies: "HTML, CSS",
-      role: "Frontend",
-      view: "www.domain.com",
-    },
-  },
-  {
-    title: "Brand Design",
-
-    img: "https://i.postimg.cc/TYVyPhrF/work-5.png",
-    demoLink: "#",
-    details: {
-      title: "Design for Technology & Services",
-      description:
-        "An app design that is clean, functional, and ideal for gamers looking to manage their digital assets and purchases",
-      created: "28 Mar 2025",
-      technologies: "HTML, CSS",
-      role: "Frontend",
-      view: "www.domain.com",
-    },
-  },
-  {
-    title: "Web Design",
-
-    img: "https://i.postimg.cc/wMdqKcbv/work-6.png",
-    demoLink: "#",
-    details: {
-      title: "App for Technology & Services",
-      description:
-        "An app design that is clean and modern, making food browsing and ordering easy",
-      created: "20 Mar 2025",
-      technologies: "HTML, CSS",
+        "A vibrant and energetic E-commerce fashion website interface design with engaging visuals",
+      created: "4 November 2025",
+      technologies: "Redux, rtk query, tailwindcss, framer-motion, react",
       role: "Frontend",
       view: "www.domain.com",
     },
@@ -148,8 +124,9 @@ export const portfolioProjects: PortfolioItem[] = [
 export type PortfolioItem = {
   title: string;
   img: string;
-  demoLink: string;
+  demoLink: string | null;
   featured?: boolean;
+  githubUrl?: string;
   details: DetailsProps;
 };
 
